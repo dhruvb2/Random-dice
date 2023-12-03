@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content
+		="width=device-width, initial-scale=1.0"> 
+	<title>Dice Game</title> 
+
+	<style> 
+		.container { 
+			width: 70%; 
+			margin: auto; 
+			text-align: center; 
+		} 
+
+		.dice { 
+			text-align: center; 
+			display: inline-block; 
+			margin: 10px; 
+		} 
+
+		body { 
+			background-color: #042f4b; 
+			margin: 0; 
+		} 
+
+		h1 { 
+			margin: 30px; 
+			font-family: "Lobster", cursive; 
+			text-shadow: 5px 0 #232931; 
+			font-size: 4.5rem; 
+			color: #4ecca3; 
+			text-align: center; 
+		} 
+
+		p { 
+			font-size: 2rem; 
+			color: #4ecca3; 
+			font-family: "Indie Flower", cursive; 
+		} 
+
+		img { 
+			width: 250px;
+			height: 250px; 
+			border: #042f4b;
+		} 
+
+		.bottom { 
+			padding-top: 30px; 
+		} 
+
+		.butn { 
+			background: #4ecca3; 
+			font-family: "Indie Flower", cursive; 
+			border-radius: 7px; 
+			color: #ffff; 
+			font-size: 30px; 
+			padding: 16px 25px 16px 25px; 
+			text-decoration: none; 
+		} 
+
+		.butn:hover { 
+			background: #232931; 
+			text-decoration: none; 
+		} 
+	</style> 
+</head> 
+
+<body> 
+	<div class="container"> 
+		<h1>Let's Play</h1> 
+
+		<div class="dice"> 
+			<p class="Player1">Player 1</p> 
+			<img class="img1" id = "image" src="https://www.clipartmax.com/png/middle/403-4035414_blank-roll-a-story-clipart-dice-writing-clip-art-blank-roll-a.png"> 
+		</div> 
+	</div> 
+
+	<div class="container bottom"> 
+		<button type="button" class="butn"
+			onClick="rollTheDice()"> 
+			Roll the Dice 
+		</button> 
+	</div> 
+	<div class="container bottom"> 
+		<button type="button" class="butn"
+			onClick="editNames()"> 
+			Edit Names 
+		</button> 
+	</div> 
+
+	<script> 
+		
+		var dice = [
+        'https://www.media4math.com/sites/default/files/library_asset/images/MathClipArt--Single-Die-with-1-Showing.png',
+        'https://www.media4math.com/sites/default/files/library_asset/images/MathClipArt--Single-Die-with-2-Showing.png',
+        'https://www.clipartmax.com/png/middle/17-172869_dice-3-clip-art-circle.png',
+        'https://www.pinclipart.com/picdir/middle/547-5479492_domino-clipart-dice-dice-4-clipart-png-download.png',
+        'https://www.clipartmax.com/png/full/388-3882770_terningkast-5-clipart-dice-throw-number-terningkast-5-clipart-dice-throw-number.png',
+        'https://www.clipartmax.com/png/middle/403-4035414_blank-roll-a-story-clipart-dice-writing-clip-art-blank-roll-a.png'
+        ];
+
+		// Player name 
+		var player1 = "Player 1"; 
+
+		// Function to change the player name 
+		function editNames() { 
+			player1 = prompt("Change Player1 name"); 
+
+			document.querySelector("p.Player1") 
+							.innerHTML = player1; 
+							
+		} 
+
+		// Function to roll the dice 
+		function rollTheDice() { 
+			setTimeout(function () { 
+				var randomNumber1 = Math.floor(Math.random() * 6) + 1; 
+				document.querySelector(".img1").setAttribute("src", document.getElementById("image").innerHTML = dice[randomNumber1-1]); 
+
+			}, 250); 
+		} 
+	</script> 
+</body> 
+
+</html> 
